@@ -2,96 +2,131 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>ejercicios de objetos en js actividad1</title>
+    <title>ejercicios de objetos en js actividad1-3</title>
+    <link rel="stylesheet" href="./css/master.css" title="no title">
+    <script src="./js/master.js" charset="utf-8"></script>
   </head>
   <body>
+    <div id="div1">
+      <h1>Gestión de Edificios</h1>
+      <button type="button" name="button" id="nuevoEdificio" onclick="showCrearEdificio()">Crear Edificio</button>
+      <div id="crear">
+        <input id="newCalle" type="text" name="crearcalle" value="" placeholder="calle">
+        <input id="newNumero" type="number" name="crearnumero" value="" placeholder="numero">
+        <input id="newCp" type="number" name="crearcp" value="" placeholder="CP">
+        <input id="btnnew" type="button" name="ctncrear" value="crear" onclick="crearEdificio()">
+      </div>
+    </div>
+
+    <div id="div2">
+      <h3 id="edificio">Sin edificios creados</h3> <button type="button" name="btnmodificar" onclick="showModificar()">Modificar</button><button type="button" name="btndatos" onclick="mostrarInformacion()">MostrarInformación</button>
+      <div id="mostrarDatos">
+        <h4 style="margin-bottom:10px">Edificio:</h4>
+        <p id="datoscalle">calle</p>
+        <p id="datosnumero">numero</p>
+        <p id="datoscp">cp</p>
+      </div>
+      <div id="modificarDatos">
+        <label for="modificarcalle">Calle</label><input id="inputcalle" type="text" name="modificarcalle" value="" placeholder="nueva Calle"><button type="button" name="btncalle" onclick="edificio.modificarCalle(document.getElementById('inputcalle').value)">Modificar</button>
+        <label for="modificarnumero">Numero</label><input id="inputnumero" type="text" name="modificarnumero" value="" placeholder="nueva Numero"><button type="button" name="btnnumero" onclick="edificio.modificarNumero(document.getElementById('inputnumero').value)">Modificar</button>
+        <label for="modificarcp">CP</label><input id="inputcp" type="text" name="modificarcp" value="" placeholder="nuevo CP"><button type="button" name="btncp" onclick="edificio.modificarCodigoPostal(document.getElementById('inputcp').value)">Modificar</button>
+      </div>
+    </div>
+
+    <div id="div3">
+      <h3>Información de Planas</h3>
+      <button type="button" name="button" onclick="showPlantas()">Mostrar Plantas</button>
+      <button type="button" name="button" onclick="showPlantasyPuertas()">agragar Plantas y Puertas</button>
+      <button type="button" name="button" onclick="showPropietario()">agregar propietario</button>
+      <div id="mostrarPlantas">
+        <h3 id="textPropietarios"></h3>
+        <ul id="propietarios">
+          <li>Sin propietarios</li>
+        </ul>
+        <!--por rellenar-->
+      </div>
+
+      <div id="agregarPlantasPuertas">
+        <input id="inputPlantas" type="number" name="plantas" value="" placeholder="nº plantas">
+        <input id="inputPuertas" type="number" name="puertas" value="" placeholder="nº puertas/planta">
+        <input type="button" name="newplantaspuertas" value="añadir" onclick="edificio.agregarPlantasyPuertas(document.getElementById('inputPlantas').value,document.getElementById('inputPuertas').value)">
+      </div>
+      <div id="agregarPropietario">
+        <input id="inputPropietario" type="text" name="nombrepropietario" value="" placeholder="nombre propietario">
+        <input id="inputPlanta"type="number" name="nplanta" value="" placeholder="nº planta">
+        <input id="inputPuerta"type="number" name="npuerta" value="" placeholder="nº puerta">
+        <input type="button" name="new propietario" value="añadir" onclick="edificio.agregarPropietario(document.getElementById('inputPropietario').value,document.getElementById('inputPlanta').value,document.getElementById('inputPuerta').value)">
+      </div>
+    </div>
     <script type="text/javascript">
-      class Puerta {
-        constructor(nPuerta,propietario) {
-          this.nPuerta=nPuerta;
-          this.propietario=propietario;
-        }
+    var edificioCreado=false;
+    var edificio=null;
+      function showCrearEdificio() {
+        document.getElementById('crear').style.display="inline";
       }
-      class Planta {
-        constructor(nPlanta,puertas) {
-          this.nPlanta=nPlanta;
-          this.puertas=puertas;//array tipo Puerta
-        }
+      function hiddeCrearEdificio() {
+        document.getElementById('crear').style.display="none";
       }
-      class Edificio {
-        constructor(calle,numero,cp,plantas) {
-          this.calle=calle;
-          this.numero=numero;
-          this.cp=cp;
-          this.plantas=plantas;//Array tipo Planta
-        }
-        agregarPlantasyPuertas(numplantas,npuertas){
-          var puerta=null;
-          var puertas=new Array();
-          var planta=null;
-          //var plantas=new Array();
-          for (var i = 0; i < numplantas; i++) {
-            puertas=new Array();
-            for (var j = 0; j < npuertas; j++) {
-              puerta=new Puerta(j,null);
-              puertas.push(puerta);
-            }
-            planta=new Planta(i,puertas);
-            //plantas.push(planta);
-            this.plantas.push(planta);
+      function showDiv2() {
+        document.getElementById('div2').style.display="inline"
+      }
+      function showDiv3() {
+        document.getElementById('div3').style.display="inline"
+      }
+      function showDatos(){
+        document.getElementById("mostrarDatos").style.display="block";
+      }
+      function showModificar(){
+        document.getElementById("modificarDatos").style.display="block";
+      }
+      function showPlantasyPuertas() {
+        document.getElementById("agregarPlantasPuertas").style.display="inline";
+      }
+      function showPropietario() {
+        document.getElementById("agregarPropietario").style.display="inline";
+      }
+      function showPlantas() {
+        document.getElementById("textPropietarios").innerHTML="Lista de propietarios de edificio "+edificio.calle+" nº "+edificio.numero+" con Código Postal : "+edificio.cp;
+        mostrarPropietarios();
+        document.getElementById("mostrarPlantas").style.display="inline";
+      }
+      function crearEdificio(){
+        var calle=document.getElementById('newCalle').value;
+        var numero=document.getElementById('newNumero').value;
+        var cp=document.getElementById('newCp').value;
+        if(calle.trim() !="" && !isNaN(numero) && !isNaN(cp) && numero>0 && cp>0 && cp.length<6){
+          edificio=new Edificio(calle,numero,cp,new Array());
+          edificioCreado=true;
+          if (edificioCreado) {
+            document.getElementById("nuevoEdificio").setAttribute("title","Version free.Solo un Edificio disponible");
+            document.getElementById("nuevoEdificio").setAttribute("disabled","disables");
+            document.getElementById("crear").style.display="none";
+            document.getElementById("edificio").innerHTML="Edificio 1";
+            showDiv2();
+            showDiv3();
           }
-
-        }
-        modificarNumero(nuevoNumero){
-          this.numero=nuevoNumero;
-        }
-        modificarCalle(nuevaCalle){
-          this.calle=nuevaCalle;
-        }
-        modificarCodigoPostal(nuevoCP){
-          this.cp=nuevoCP;
-        }
-        mostrarCalle(){
-          document.write("calle: "+this.calle);
-        }
-        mostrarNumero(){
-          document.write("nº "+this.numero);
-        }
-        codigoPostal(){
-          document.write("Código Postal: "+this.cp);
-        }
-        agregarPropietario(nombre,planta,puerta){
-          this.plantas[planta-1].puertas[puerta-1].propietario=nombre;
-        }
-        mostrarPlantas(){
-          var plantas=this.plantas.length;
-          var puertas=0;
-          for (var i = 0; i < plantas; i++) {
-            puertas=this.plantas[i].puertas.length;
-            for (var j = 0; j < puertas; j++) {
-              document.write("<br/>"+"puerta "+(j+1)+" planta "+(i+1)+" propietario "+this.plantas[i].puertas[j].propietario);
-            }
-          }
+        }else {
+          alert("debes introducir una calle, un numero y un CP positivos y validos");
         }
 
       }
-
-      var Edificio1=new Edificio("av del cid","31","46860",new Array());
-      Edificio1.agregarPlantasyPuertas(3,2);
-      Edificio1.agregarPlantasyPuertas(2,3);
-      Edificio1.modificarNumero("4");
-      Edificio1.modificarCalle("alto palancia");
-      Edificio1.modificarCodigoPostal("46920");
-
-      Edificio1.mostrarCalle();
-      document.write("<br/>");
-      Edificio1.mostrarNumero();
-      document.write("<br/>");
-      Edificio1.codigoPostal();
-
-      Edificio1.agregarPropietario("paco",1,1);
-      Edificio1.agregarPropietario("pablo",5,3);
-      Edificio1.mostrarPlantas();
+      function mostrarInformacion(){
+        if(edificioCreado){
+          document.getElementById("datoscalle").innerHTML=edificio.calle;
+          document.getElementById("datosnumero").innerHTML=edificio.numero;
+          document.getElementById("datoscp").innerHTML=edificio.cp;
+          showDatos();
+        }
+      }
+      function mostrarPropietarios(){
+        var Apropietarios=edificio.mostrarPlantas();
+        var Li="";
+        var lista=document.getElementById('propietarios');
+        for (var i = 0; i < Apropietarios.length; i++) {
+          Li+="<li>El propietario del piso "+Apropietarios[i][0]+" de la planta "+Apropietarios[i][1]+" es : "+Apropietarios[i][2]+"</li>";
+        }
+        lista.innerHTML=Li;
+      }
     </script>
   </body>
 </html>
