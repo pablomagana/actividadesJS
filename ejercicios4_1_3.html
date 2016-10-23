@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicios de objetos en js actividad1</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Puerta {
+        constructor(nPuerta,propietario) {
+          this.nPuerta=nPuerta;
+          this.propietario=propietario;
+        }
+      }
+      class Planta {
+        constructor(nPlanta,puertas) {
+          this.nPlanta=nPlanta;
+          this.puertas=puertas;//array tipo Puerta
+        }
+      }
+      class Edificio {
+        constructor(calle,numero,cp,plantas) {
+          this.calle=calle;
+          this.numero=numero;
+          this.cp=cp;
+          this.plantas=plantas;//Array tipo Planta
+        }
+        agregarPlantasyPuertas(numplantas,npuertas){
+          var puerta=null;
+          var puertas=new Array();
+          var planta=null;
+          //var plantas=new Array();
+          for (var i = 0; i < numplantas; i++) {
+            puertas=new Array();
+            for (var j = 0; j < npuertas; j++) {
+              puerta=new Puerta(j,null);
+              puertas.push(puerta);
+            }
+            planta=new Planta(i,puertas);
+            //plantas.push(planta);
+            this.plantas.push(planta);
+          }
+
+        }
+        modificarNumero(nuevoNumero){
+          this.numero=nuevoNumero;
+        }
+        modificarCalle(nuevaCalle){
+          this.calle=nuevaCalle;
+        }
+        modificarCodigoPostal(nuevoCP){
+          this.cp=nuevoCP;
+        }
+        mostrarCalle(){
+          document.write("calle: "+this.calle);
+        }
+        mostrarNumero(){
+          document.write("nº "+this.numero);
+        }
+        codigoPostal(){
+          document.write("Código Postal: "+this.cp);
+        }
+        agregarPropietario(nombre,planta,puerta){
+          this.plantas[planta-1].puertas[puerta-1].propietario=nombre;
+        }
+        mostrarPlantas(){
+          var plantas=this.plantas.length;
+          var puertas=0;
+          for (var i = 0; i < plantas; i++) {
+            puertas=this.plantas[i].puertas.length;
+            for (var j = 0; j < puertas; j++) {
+              document.write("<br/>"+"puerta "+(j+1)+" planta "+(i+1)+" propietario "+this.plantas[i].puertas[j].propietario);
+            }
+          }
+        }
+
+      }
+
+      var Edificio1=new Edificio("av del cid","31","46860",new Array());
+      Edificio1.agregarPlantasyPuertas(3,2);
+      Edificio1.agregarPlantasyPuertas(2,3);
+      Edificio1.modificarNumero("4");
+      Edificio1.modificarCalle("alto palancia");
+      Edificio1.modificarCodigoPostal("46920");
+
+      Edificio1.mostrarCalle();
+      document.write("<br/>");
+      Edificio1.mostrarNumero();
+      document.write("<br/>");
+      Edificio1.codigoPostal();
+
+      Edificio1.agregarPropietario("paco",1,1);
+      Edificio1.agregarPropietario("pablo",5,3);
+      Edificio1.mostrarPlantas();
+    </script>
+  </body>
+</html>
