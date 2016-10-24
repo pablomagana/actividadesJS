@@ -18,11 +18,13 @@ padding: 0;}
 }
 #agregarPlantasPuertas{
     border: 2px solid brown;
-    display:none;
+    display: none;
+    text-align:right;
 }
 #agregarPropietario{
     border: 2px solid purple;
     display:none;
+    text-align:right;
 }
 #div2,#div3{
     display:none;
@@ -30,3 +32,8 @@ padding: 0;}
 #div2 h3{
   display: inline-block;
 }
+#div2 input,#div3 input{
+  margin: 10px;
+}
+#btnshowplantas{display: none;}
+#btnshowpropietarios{display: none;}
