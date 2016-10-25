@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./calculadora.css" media="screen" title="no title">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  </head>
+  <body>
+    <h1>Calculadora Cientifica online</h1>
+    <table>
+      <tr><td colspan="4"><input id="campo" type="text" disabled name="name" value="0"></td><td><button id="c" onclick="borrar()" class="btn btn-danger" type="button" name="button">C</button></td></tr>
+      <tr class="opc"><td colspan="5"><button class="btn btn-primary" type="button" name="button">SQRT</button><button class="btn btn-primary" type="button" name="button">EXP</button><button class="btn btn-primary" type="button" name="button">LOG</button></td></tr>
+      <tr class="opc"><td colspan="5"><button class="btn btn-primary" type="button" name="button">SEN</button><button  class="btn btn-primary" type="button" name="button">COS</button><button class="btn btn-primary" type="button" name="button">TAN</button></td></tr>
+      <tr ><td><button class="btn btn-info" type="button" name="button">MC</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">7</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">8</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">9</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">+</button></td></tr>
+      <tr><td><button class="btn btn-info" type="button" name="button">MR</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">4</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">5</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">6</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">-</button></td></tr>
+      <tr><td><button class="btn btn-info" type="button" name="button">MS</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">1</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">2</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">3</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">*</button></td></tr>
+      <tr><td colspan="2"><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">0</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">.</button></td><td><button class="btn btn-default igual" onclick="resolver()" type="button" name="button">=</button></td><td><button class="btn btn-warning" onclick="marcarOperador(this.innerHTML)" type="button" name="button">/</button></td></tr>
+
+    </table>
+    <script type="text/javascript">
+
+    </script>
+    <script src="calculadora.js" charset="utf-8"></script>
+  </body>
+</html>

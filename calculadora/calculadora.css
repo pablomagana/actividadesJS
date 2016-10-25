@@ -1,0 +1,33 @@
+
+button{
+  width: 100%;
+}
+.opc button{
+  width: 33%;
+  margin-left: 0.15%;
+  margin-right: 0.15%;
+}
+.igual{
+  background: rgba(0, 0, 0, 0.77)!important;
+  color: white!important;
+}
+table{
+  width: 30%;
+  position: fixed;
+  top: 100px;
+  left: 35%;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #616161;
+  box-shadow: 0px 0px 15px;
+}
+td{
+  text-align: center;
+}
+input{
+  width: 90%;
+  text-align: right;
+}
+h1{
+  text-align: center;
+}

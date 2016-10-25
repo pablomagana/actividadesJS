@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicios de objetos en js actividad1-1</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Coche {
+        constructor(marca,modelo,fabricacion) {
+          this.marca=marca;
+          this.modelo=modelo;
+          this.fabricacion=fabricacion;
+        }
+      }
+      var coche1=new Coche("opel","corsa","2000");
+      var coche2=new Coche("citroen","C3","2005");
+      var coche3=new Coche("fiat","500","2010");
+      var coches = Array(coche1,coche2,coche3);
+
+      // for (var coche in coches) {
+      //   document.write(coche);
+      // }
+      document.write("<h1>Listado de coches<h1>");
+      document.write("<table><tr><th>Marca</th><th>Modelo</th><th>Año fabricación</th></tr>")
+      for (var i = 0; i < coches.length; i++) {
+        document.write("<tr><td>"+coches[i].marca+"</td><td>"+coches[i].modelo+"</td><td>"+coches[i].fabricacion+"</td></tr>");
+      }
+      document.write("</table>");
+
+    </script>
+  </body>
+</html>
