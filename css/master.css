@@ -1,0 +1,39 @@
+p{margin: 0;
+padding: 0;}
+#crear{
+    border:2px solid red;
+    display:none;
+}
+#mostrarDatos{
+    border:2px solid blue;
+    display:none;
+}
+#modificarDatos{
+    border: 2px solid yellow;
+    display:none;
+}
+#mostrarPlantas{
+    border:2px solid green;
+    display:none;
+}
+#agregarPlantasPuertas{
+    border: 2px solid brown;
+    display: none;
+    text-align:right;
+}
+#agregarPropietario{
+    border: 2px solid purple;
+    display:none;
+    text-align:right;
+}
+#div2,#div3{
+    display:none;
+}
+#div2 h3{
+  display: inline-block;
+}
+#div2 input,#div3 input{
+  margin: 10px;
+}
+#btnshowplantas{display: none;}
+#btnshowpropietarios{display: none;}
