@@ -1,13 +1,20 @@
+// cambiar todo por un sistema de dos numeros
+// y una variable que almacene la respuesta anterior
+// la acumulativa solo almacena hasta resolver la operación.
+// en principio no se permite en una misma operación operandos distintos
+
+
 //variables
 campo=document.getElementById('campo');
 acum=0;
-num=null;
+num=0;
 opt=null;
-result=null;
+result=0;
 operadores=new Array("+","-","*","/");
 operadoresFunciones=new Array("sqrt(","sen(","cos(","exp(","log(","tan(");
 memoria=null;
 optFn=null;
+ans=0;
 
 //funciones
 function marcarNumero(n) {
@@ -16,27 +23,27 @@ function marcarNumero(n) {
   }
   campo.value=campo.value.concat(n);
   num=parseFloat(campo.value);
-
 }
 
 function limpiar(){
   campo.value="0";
-  num1=null;
-  num2=null;
-  opt=null;
+  num1=0;
+  num2=0;
+  opt=0;
 }
 
 function borrar(){
   campo.value="0"
-  acum=null;
-  num=null;
-  result=null;
+  acum=0;
+  num=0;
+  result=0;
   opt=null;
-  memoria=null;
+  memoria=0;
 }
-function operar(){
+function operar(nu){
+
   n1=parseFloat(acum);
-  n2=parseFloat(num);
+  n2=parseFloat(nu);
   switch (opt) {
     case "+":
       result=n1+n2;
@@ -48,22 +55,32 @@ function operar(){
       result=n1*n2;
       break;
     case "/":
-      result=n1/n2;
+      result=n2/n1;
       break;
     default:
 
   }
+  //num=0;
   return result;
 }
 function marcarOperador(opt){
+
   campo.value=opt;
   this.opt=opt;
-  acum=operar();
+  lastOpt=opt;
+  acum=operar(num);
+  console.log("num "+num);
+  console.log("acumulado "+acum);
 }
+lastOpt=null;
 function resolver(){
-  operar();
-  acum=result;
-  campo.value=result;
+  acum=operar(lastOpt==null?ans:num);
+  if(lastOpt!=null){ans=num;}
+  campo.value=acum;
+  num=0;
+  lastOpt=null;
+  console.log("ans "+ans);
+  console.log("num "+num);
 }
 
 function saveMemoria(num){
@@ -72,11 +89,8 @@ function saveMemoria(num){
 
 function getMemoria(){
   campo.value=memoria;
-  if(opt==null){
-    num1=parseFloat(campo.value);
-  }else {
-    num2=parseFloat(campo.value);
-  }
+  num=parseFloat(campo.value);
+
 }
 
 function marcarFuncion(fn){

@@ -27,6 +27,7 @@ td{
 input{
   width: 90%;
   text-align: right;
+  border: none;
 }
 h1{
   text-align: center;
