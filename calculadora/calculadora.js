@@ -5,18 +5,13 @@ num=null;
 opt=null;
 result=null;
 operadores=new Array("+","-","*","/");
-<<<<<<< HEAD
 operadoresFunciones=new Array("sqrt(","sen(","cos(","exp(","log(","tan(");
 memoria=null;
 optFn=null;
 
 //funciones
-function marcarNumero(num) {
-  if((campo.value=="0" && num!=".") || operadores.indexOf(campo.value)>-1){
-=======
 function marcarNumero(n) {
   if((campo.value=="0" && n!=".") || operadores.indexOf(campo.value)>-1){
->>>>>>> refs/remotes/origin/master
     campo.value="";
   }
   campo.value=campo.value.concat(n);
