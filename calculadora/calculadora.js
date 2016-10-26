@@ -1,10 +1,11 @@
 //variables
 campo=document.getElementById('campo');
-num1=null;
-num2=null;
+acum=0;
+num=null;
 opt=null;
 result=null;
 operadores=new Array("+","-","*","/");
+<<<<<<< HEAD
 operadoresFunciones=new Array("sqrt(","sen(","cos(","exp(","log(","tan(");
 memoria=null;
 optFn=null;
@@ -12,14 +13,15 @@ optFn=null;
 //funciones
 function marcarNumero(num) {
   if((campo.value=="0" && num!=".") || operadores.indexOf(campo.value)>-1){
+=======
+function marcarNumero(n) {
+  if((campo.value=="0" && n!=".") || operadores.indexOf(campo.value)>-1){
+>>>>>>> refs/remotes/origin/master
     campo.value="";
   }
-  campo.value=campo.value.concat(num);
-  if(opt==null){
-    num1=parseFloat(campo.value);
-  }else {
-    num2=parseFloat(campo.value);
-  }
+  campo.value=campo.value.concat(n);
+  num=parseFloat(campo.value);
+
 }
 
 function limpiar(){
@@ -31,21 +33,15 @@ function limpiar(){
 
 function borrar(){
   campo.value="0"
-  num1=null;
-  num2=null;
+  acum=null;
+  num=null;
   result=null;
   opt=null;
   memoria=null;
 }
-
-function marcarOperador(opt){
-  campo.value=opt;
-  this.opt=opt;
-}
-
-function resolver(){
-  n1=parseFloat(num1);
-  n2=parseFloat(num2);
+function operar(){
+  n1=parseFloat(acum);
+  n2=parseFloat(num);
   switch (opt) {
     case "+":
       result=n1+n2;
@@ -62,7 +58,16 @@ function resolver(){
     default:
 
   }
-  num1=result;
+  return result;
+}
+function marcarOperador(opt){
+  campo.value=opt;
+  this.opt=opt;
+  acum=operar();
+}
+function resolver(){
+  operar();
+  acum=result;
   campo.value=result;
 }
 
