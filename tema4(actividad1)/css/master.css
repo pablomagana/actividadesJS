@@ -1,30 +1,31 @@
 p{margin: 0;
 padding: 0;}
+div{
+  padding: 10px;
+}
 #crear{
-    border:2px solid red;
+    border:2px solid rgb(134, 116, 39);
     display:none;
 }
 #mostrarDatos{
-    border:2px solid blue;
+    border:2px solid rgb(134, 116, 39);
     display:none;
 }
 #modificarDatos{
-    border: 2px solid yellow;
+    border: 2px solid rgb(134, 116, 39);
     display:none;
 }
 #mostrarPlantas{
-    border:2px solid green;
+    border:2px solid rgb(134, 116, 39);
     display:none;
 }
 #agregarPlantasPuertas{
-    border: 2px solid brown;
+    border: 2px solid rgb(134, 116, 39);
     display: none;
-    text-align:right;
 }
 #agregarPropietario{
-    border: 2px solid purple;
+    border: 2px solid rgb(134, 116, 39);
     display:none;
-    text-align:right;
 }
 #div2,#div3{
     display:none;
