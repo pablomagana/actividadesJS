@@ -4,17 +4,28 @@
     <meta charset="utf-8">
     <title>Calculadora</title>
     <link rel="stylesheet" href="./calculadora.css" media="screen" title="no title">
+    <style media="screen">
+      body,html,input{
+        background: rgb(93, 94, 92);
+      }
+      input{
+        color: rgb(226, 226, 226)!important;
+      }
+    </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
   </head>
   <body>
     <h1>Calculadora Online</h1>
+    <div id="logg" style="position:fixed;top:60px;left:80px;color:white;width: 300px; height: 800px; overflow: scroll;">
+
+    </div>
     <table>
       <tr><td colspan="4"><input id="campo" type="text" disabled name="name" value="0"></td><td><button id="c" onclick="limpiar()" class="btn btn-danger" type="button" name="button">C</button></td></tr>
-      <tr class="opc"><td colspan="5"><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">SQRT</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">EXP</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">LOG</button></td></tr>
-      <tr class="opc"><td colspan="5"><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">SEN</button><button  onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">COS</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">TAN</button></td></tr>
+      <tr class="opc"><td colspan="5"><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">SQRT x</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">n EXP x</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">LOG x</button></td></tr>
+      <tr class="opc"><td colspan="5"><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">SEN x</button><button  onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">COS x</button><button onclick="marcarFuncion(this.innerHTML)" class="btn btn-primary" type="button" name="button">TAN x</button></td></tr>
       <tr><td><button onclick="borrar()" class="btn btn-info" type="button" name="button">MC</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">7</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">8</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">9</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">+</button></td></tr>
-      <tr><td><button onclick="getMemoria()" class="btn btn-info" type="button" name="button">MR</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">4</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">5</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">6</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">-</button></td></tr>
-      <tr><td><button onclick="saveMemoria(campo.value)" class="btn btn-info" type="button" name="button">MS</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">1</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">2</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">3</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">*</button></td></tr>
+      <tr><td><button onclick="saveMemoria(campo.value)" class="btn btn-info" type="button" name="button">MS</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">4</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">5</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">6</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">-</button></td></tr>
+      <tr><td><button onclick="getMemoria()" class="btn btn-info" type="button" name="button">MR</button></td><td><button  class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">1</button></td><td><button onclick="marcarNumero(this.innerHTML)" class="btn btn-default" type="button" name="button">2</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">3</button></td><td><button onclick="marcarOperador(this.innerHTML)" class="btn btn-warning" type="button" name="button">*</button></td></tr>
       <tr><td colspan="2"><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">0</button></td><td><button class="btn btn-default" onclick="marcarNumero(this.innerHTML)" type="button" name="button">.</button></td><td><button class="btn btn-default igual" onclick="resolver()" type="button" name="button">=</button></td><td><button class="btn btn-warning" onclick="marcarOperador(this.innerHTML)" type="button" name="button">/</button></td></tr>
 
     </table>
