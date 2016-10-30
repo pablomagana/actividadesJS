@@ -178,23 +178,29 @@ function resolverFuncion(nstr){
   n=nstr.split(" ");
   switch (optFn) {
     case "SQRT x":
-      result=Math.sqrt(n[1]);
+      nf=parseFloat(n[1]);
+      result=Math.sqrt(nf);
       break;
     case "SEN x":
-      result=Math.sin(n[1]);
+      nf=parseFloat(n[1]);
+      result=Math.sin(nf);
       break;
     case "n EXP x":
-      result=Math.pow(n[0],n[2]);
+      nf1=parseFloat(n[1]);
+      nf2=parseFloat(n[2]);
+      result=Math.pow(nf1,nf2);
       break;
     case "COS x":
-      result=Math.cos(n[1]);
+      nf=parseFloat(n[1]);
+      result=Math.cos(nf);
       break;
     case "LOG x":
-      result=Math.log(n[1]);
+      nf=parseFloat(n[1]);
+      result=Math.log(nf);
       break;
     case "TAN x":
-      result=Math.tan(n[1]);
-      console.log("tan "+n[1]+ " = "+result);
+      nf=parseFloat(n[1]);
+      result=Math.tan(nf);
       break;
     default:
 
