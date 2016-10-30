@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="div1">
-      <h1>Gestión de Edificios</h1>
+      <h1>Gestión de Edificios (free version)</h1>
       <button type="button" name="button" id="nuevoEdificio" onclick="showCrearEdificio()">Crear Edificio</button>
       <div id="crear">
         <input id="newCalle" type="text" name="crearcalle" value="" placeholder="calle">
@@ -91,7 +91,7 @@
         document.getElementById("modificarDatos").style.display="none";
       }
       function showPlantasyPuertas() {
-        document.getElementById("agregarPlantasPuertas").style.display="inline-block";
+        document.getElementById("agregarPlantasPuertas").style.display="block";
         hiddePropietario();
         hiddePlantas();
       }
@@ -99,7 +99,7 @@
         document.getElementById("agregarPlantasPuertas").style.display="none";
       }
       function showPropietario() {
-        document.getElementById("agregarPropietario").style.display="inline-block";
+        document.getElementById("agregarPropietario").style.display="block";
         hiddePlantas();
         hiddePlantasyPuertas();
       }
@@ -136,7 +136,7 @@
             showDiv3();
           }
         }else {
-          alert("debes introducir una calle, un numero y un CP positivos y validos");
+          alert("Error. Debes introducir una calle, un numero y un CP positivos y validos");
         }
 
       }
@@ -159,12 +159,17 @@
         lista.innerHTML=Li;
       }
       function addPlantasyPuertas(){
-        edificio.agregarPlantasyPuertas(document.getElementById('inputPlantas').value,document.getElementById('inputPuertas').value);
-        if (edificioCreado && edificio.plantas.length>0) {
-          showButtonsPlantasPropietarios();
-          //showPropietario();
-          //showPlantas();
+        if(document.getElementById('inputPlantas').value>0 && document.getElementById('inputPuertas').value){
+          edificio.agregarPlantasyPuertas(document.getElementById('inputPlantas').value,document.getElementById('inputPuertas').value);
+          if (edificioCreado && edificio.plantas.length>0) {
+            showButtonsPlantasPropietarios();
+            //showPropietario();
+            //showPlantas();
+          }
+        }else{
+          alert("Error. Los valores introducidos deben ser positivos");
         }
+
       }
     </script>
   </body>

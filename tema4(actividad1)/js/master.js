@@ -1,3 +1,8 @@
+setInterval(function(){
+  if(edificio==null){
+    document.getElementById("nuevoEdificio").disabled=false;
+  }
+},3000);
 class Puerta {
   constructor(nPuerta,propietario) {
     this.nPuerta=nPuerta;
@@ -37,17 +42,36 @@ class Edificio {
 
   }
   agregarPropietario(nombre,planta,puerta){
-    this.plantas[planta-1].puertas[puerta-1].propietario=nombre;
+    if(planta>0,puerta>0){
+      if(planta<this.plantas.length && puerta<this.plantas[puerta-1].puertas.length){
+        this.plantas[planta-1].puertas[puerta-1].propietario=nombre;
+      }else {
+        alert("Error. Los valores introducidos deben ser positivos");
+      }
+
+    }else {
+      alert("Error. Los valores introducidos deben ser positivos");
+    }
+
   }
   //modificar
   modificarNumero(nuevoNumero){
-    this.numero=nuevoNumero;
+    if (nuevoNumero>0) {
+      this.numero=nuevoNumero;
+    }else {
+      alert("Error. Los valores introducidos deben ser positivos");
+    }
+
   }
   modificarCalle(nuevaCalle){
     this.calle=nuevaCalle;
   }
   modificarCodigoPostal(nuevoCP){
+    if(nuevoCP>0){
     this.cp=nuevoCP;
+    }else {
+      alert("Error. Los valores introducidos deben ser positivos");
+    }
   }
   //mostrar
   mostrarCalle(){
