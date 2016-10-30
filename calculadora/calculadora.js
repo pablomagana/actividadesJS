@@ -186,9 +186,9 @@ function resolverFuncion(nstr){
       result=Math.sin(nf);
       break;
     case "n EXP x":
-      nf1=parseFloat(n[1]);
+      nf1=parseFloat(n[0]);
       nf2=parseFloat(n[2]);
-      result=Math.pow(nf1,nf2);
+      result=nf1*Math.pow(10,nf2);
       break;
     case "COS x":
       nf=parseFloat(n[1]);
@@ -208,8 +208,8 @@ function resolverFuncion(nstr){
   return result;
 }//resolver funcion avanzada
 
-logg.style.display='none';
-logg.style.overflow='none';
+//logg.style.display='none';
+//ogg.style.overflow='none';
 function printLog(varLog){//log interno para control de variables. def not enable
   logg=document.getElementById('logg');
   logg.innerHTML=logg.innerHTML+"<p>"+varLog+"</p>";
