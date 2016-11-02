@@ -43,7 +43,7 @@ class Edificio {
   }
   agregarPropietario(nombre,planta,puerta){
     if(planta>0,puerta>0){
-      if((planta-1)<this.plantas.length && (puerta-1)<this.plantas[puerta-1].puertas.length){
+      if((planta-1)<this.plantas.length && (puerta-1)<this.plantas[planta-1].puertas.length){
         this.plantas[planta-1].puertas[puerta-1].propietario=nombre;
       }else {
         alert("Error. Los valores introducidos deben ser positivos");
