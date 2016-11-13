@@ -56,8 +56,6 @@ function verCesta(){
   }else {
     vacia.style.display="inline";
   }
-
-
 }
 function vaciarCesta(){
   if (document.cookie.length>0) {
@@ -72,6 +70,7 @@ function vaciarCesta(){
     return null;
   }
 }
+
 function addCesta(item) {
   cookieItem=getCookie(item);
   if(cookieItem!=null){
@@ -79,8 +78,9 @@ function addCesta(item) {
   }else{
     setCookie(item,1);
   }
-  cookieItem=getCookie(item);
+  verCesta();
 }
+
 function rmCesta(item) {
   cookieItem=getCookie(item);
   if(cookieItem!=null){
