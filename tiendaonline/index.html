@@ -4,24 +4,30 @@
     <meta charset="utf-8">
     <title>Compra libros online</title>
   </head>
-  <body>
-    <fieldset id="libros">
+  <body style="text-align:center;color:blue;min-width:1040px;">
+    <h1>La Cada del Libro</h1>
+    <fieldset id="libros" style="width:20%;display:inline;height:200px;vertical-align:middle;text-align:left;border-color:yellow;">
   <legend>Libros disponibles</legend>
     <ul>
-      <li><button type="button" name="button" onclick="addCesta(ijs)">+</button>Introdución a JavaScript</li>
-      <li><button type="button" name="button" onclick="addCesta(ijq)">+</button>Introducción a Jquery</li>
-      <li><button type="button" name="button" onclick="addCesta(jsa)">+</button>Javascript Avanzado</li>
-      <li><button type="button" name="button" onclick="addCesta(jqa)">+</button>Jquery Avanzado</li>
-      <li><button type="button" name="button" onclick="addCesta(dboo)">+</button>Desarrollo con bootstrap</li>
+      <li><button type="button" name="button" onclick="addCesta('ijs')">+</button>Introdución a JavaScript</li>
+      <li><button type="button" name="button" onclick="addCesta('ijq')">+</button>Introducción a Jquery</li>
+      <li><button type="button" name="button" onclick="addCesta('jsa')">+</button>Javascript Avanzado</li>
+      <li><button type="button" name="button" onclick="addCesta('jqa')">+</button>Jquery Avanzado</li>
+      <li><button type="button" name="button" onclick="addCesta('dbo')">+</button>Desarrollo con bootstrap</li>
     </ul>
  </fieldset>
 
- <fieldset id="cesta">
+ <fieldset id="cesta" style="width:20%;display:inline;height:200px;vertical-align:middle;text-align:left;border-color:yellow;">
   <legend>Cesta de compra</legend>
-  <p>Cesta vacia</p>
+  <p id="vacia">Cesta vacia</p>
   <ul id="listacesta">
 
   </ul>
  </fieldset>
+ <div class="botones" >
+   <button style="margin:15px;" type="button" onclick="verCesta()" name="button">Ver Cesta</button>
+   <button style="margin:15px;" type="button" onclick="vaciarCesta()" name="button">Vaciar Cesta</button>
+ </div>
   </body>
 </html>
+<script src="master.js" charset="utf-8"></script>
