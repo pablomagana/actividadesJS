@@ -1,0 +1,17 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  cursor:none;
+}
+
+body{
+  background-image:url("../img/estrellas.jpg");
+}
+
+.cohete{
+  float: left;
+}
+
+.monstruo{
+  float: right;
+}
