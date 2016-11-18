@@ -10,8 +10,25 @@ body{
 
 .cohete{
   float: left;
+  z-index: 3;
 }
 
 .monstruo{
   float: right;
+  z-index: 1;
+}
+
+#balas{
+  z-index: 2;
+}
+
+#divcontador{
+  padding-right: 10px;
+  min-width: 200px;
+  background: yellow;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  text-align: right;
+  font-weight: bold;
 }
