@@ -54,7 +54,6 @@ function lanzarBala(e){
   }
 }
 function moverBala() {
-
     xBala+=5;
     balas.style.left=xBala+"px";
     if(xBala>=screen.width){
@@ -64,16 +63,16 @@ function moverBala() {
       clearInterval(intervalBala);
     }
     checkColision();
-
-
 }
 
 function checkColision(){
   //comparar posiciones
-  if(balas.style.left.split("px")[0]>(screen.width-350)){
+  if(balas.style.left.split("px")[0]==(screen.width-300)){
     console.log("altura alcanzada");
-    clearInterval(intervalBala);
-    balas.style.left=balas.style.left.split("px")[0]+"px";
+    dist=Math.abs(balas.style.top.split("px")[0]-(martian.style.top.split("px")[0]));
+    if (dist<100) {
+      contador++;
+    }
   }
   contadorSpan.innerHTML=contador;
 }
