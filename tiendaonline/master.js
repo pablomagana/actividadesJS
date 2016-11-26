@@ -58,16 +58,16 @@ function verCesta(){
   }
 }
 function vaciarCesta(){
+  dc=document.cookie;
   if (document.cookie.length>0) {
     cookies=document.cookie.split(";");
     for (var i = 0; i < cookies.length; i++) {
-      cookie=cookies[i].split("=");
-      name=decodeURIComponent(cookie[0]);
-      value=decodeURIComponent(cookie[1]);
-      setCookie(name,valor,0);
+      cookie=cookies[0].split("=");
+      name=decodeURIComponent(cookie[0]).trim();
+      value=decodeURIComponent(cookie[1]).trim();
+      setCookie(name,0,0);
     }
-    verCesta();
-    return null;
+    //verCesta();
   }
 }
 
