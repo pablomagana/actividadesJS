@@ -66,6 +66,9 @@ class Tablero{
     //console.log(casilla.id.split("casilla")[1].substring(1,2));
     var x=parseInt(casilla.id.split("casilla")[1].substring(0,1));
     var y=parseInt(casilla.id.split("casilla")[1].substring(1,2));
+    if(this.casillas[x][y]>0){
+      return false;
+    }
     this.casillas[x][y]=this.turno;
 
     if (this.turno==1) {
