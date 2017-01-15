@@ -46,11 +46,12 @@ $(document).ready(function() {
     if(winner!=null){
       clearInterval(interval);
       alert("Ha ganado el coche "+winner);
-    }
-    for (var i = 0; i < coches.length; i++) {
+      return;
+    }else{
+      for (var i = 0; i < coches.length; i++) {
       coches[i].avanzar();
     }
-
+  }
   }, 250);
 
   //console.log(coches);
