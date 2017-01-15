@@ -62,12 +62,14 @@ function vaciarCesta(){
   if (document.cookie.length>0) {
     cookies=document.cookie.split(";");
     for (var i = 0; i < cookies.length; i++) {
-      cookie=cookies[0].split("=");
+      cookie=cookies[i].split("=");
       name=decodeURIComponent(cookie[0]).trim();
       value=decodeURIComponent(cookie[1]).trim();
       setCookie(name,0,0);
+      dc=document.cookie;
+      console.log(dc);
     }
-    //verCesta();
+    verCesta();
   }
 }
 

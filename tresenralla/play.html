@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tres en raya JavaScript</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+  body{
+    text-align: center;
+    margin: auto;
+  }
+		#tablero{
+			border: 1px solid black;
+      text-align: center;
+      margin: auto;
+		}
+		#tablero td{
+			width:50px;
+			height:50px;
+			border:1px solid black;
+			text-align: center;
+			cursor:pointer;
+		}
+
+	</style>
+</head>
+<body onload="crearTablero()">
+     <h3> Juego del tres en raya - Pablo Magaña</h3>
+     <h4>Turno: <span id="campoTurno"></span></h4>
+     <table id="tablero">
+     <tr>
+     	<td id="casilla00"> </td>
+     	<td id="casilla01"> </td>
+     	<td id="casilla02"> </td>
+     </tr>
+
+     <tr>
+	     <td id="casilla10"> </td>
+	     <td id="casilla11"> </td>
+	     <td id="casilla12"> </td>
+     </tr>
+     <tr>
+	     <td id="casilla20"> </td>
+	     <td id="casilla21"> </td>
+	     <td id="casilla22"> </td>
+     </tr>
+     </table>
+<script src="play.js" charset="utf-8"></script>
+<script type="text/javascript">
+  fin=false;
+  campoTurno=document.getElementById("campoTurno");
+
+   function crearTablero(){
+   	 document.tablero=new Tablero();
+     document.tablero.inicializarTablero();
+     document.onclick=function(event){
+        if(event.target.tagName=="TD" && fin==false){
+         document.tablero.marcarMovimiento(event.target);
+         campoTurno.innerHTML="Jugador "+document.tablero.turno;
+        }
+      }
+    }
+</script>
+
+</body>
+</html>
