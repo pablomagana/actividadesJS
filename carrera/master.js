@@ -41,6 +41,7 @@ $(document).ready(function() {
   for (var i = 0; i < coches_num; i++) {
     coches[i]=new Coche(i);
   }
+  $("#iniciar").on("click",function() {
   interval=setInterval(function () {
     checkwinner();
     if(winner!=null){
@@ -56,4 +57,5 @@ $(document).ready(function() {
 
   //console.log(coches);
   //console.log(document.getElementById("pista").offsetWidth);
+});
 });
