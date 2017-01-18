@@ -28,9 +28,6 @@ class Cancion{
     mini_img.setAttribute("ondragstart","start(event)");
     lista.appendChild(mini_img);
   }
-  reproducir() {
-
-  }
 }
 
 for (var i = 0; i < titulos.length; i++) {

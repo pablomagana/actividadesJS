@@ -48,6 +48,8 @@ function drop(objeto,event) {
 	audio=document.getElementById("controles");
 	audio.setAttribute("src","musica/"+obj_img.mp3);
 	audio.setAttribute("autoplay","true");
+
+	title=document.getElementById("tituloCancion").innerHTML=obj_img.cantante+": "+obj_img.titulo;
 }
 </script>
 </body>
