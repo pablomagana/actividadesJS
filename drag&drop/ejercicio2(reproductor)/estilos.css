@@ -1,0 +1,52 @@
+body{
+	background-color: #004C5C;
+}
+
+#tituloCancion{
+	font-size: 30px;
+	height: 50px;
+	text-align: center;
+	background-color: #20B0FF;
+	font-weight: bold;
+}
+
+#reproductor{
+	width: 680px;
+	height: 580px;
+	margin: 0 auto;
+	background-color: #00A0C2;
+	border: solid 1px #154700;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#player{
+	width: 300px;
+	float: left;
+	background: #333;
+	margin: 100px;
+}
+
+#caratula{
+	width: 250px;
+	height: 250px;
+	margin: 25px;
+	background: url("imagenes/disco.png") no-repeat center center;
+
+}
+
+#info{
+	color:#fff;
+}
+
+#lista{
+margin: 15px;
+padding: 0px;
+}
+
+.miniatura{
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	background: no-repeat center center;
+}

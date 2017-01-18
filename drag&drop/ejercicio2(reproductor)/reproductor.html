@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reproductor HTML5</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="estilos.css"/>
+
+</head>
+<body>
+
+<div id="reproductor">
+<div id="tituloCancion"> Reproductor de música HTML5 y JS</div>
+
+  <div id="player">
+    <div id="caratula" ondragover="over(event)" ondrop="drop(this,event)"> </div>
+    <div id="info"> Arrastra un disco para escucharlo </div>
+    <audio controls="true" id="controles"/>
+  </div>
+
+ <div id="lista">
+ </div>
+</div>
+
+<script type="text/javascript" src="js/reproductor.js"></script>
+<script type="text/javascript">
+function start(event) {
+	event.dataTransfer.setData("id", event.target.id);
+	console.log(event.target.id);
+}
+function over(event) {
+	event.preventDefault();
+}
+function drop(objeto,event) {
+	event.preventDefault();
+	var id = event.dataTransfer.getData("id");
+
+	console.log(id);
+	if(objeto.hasChildNodes()){
+		objeto.removeChild(objeto.lastChild);
+	}
+	obj_img=canciones[id];
+	console.log(obj_img);
+	img=document.createElement("img");
+	img.src="imagenes/"+obj_img.img;
+	img.alt=obj_img.titulo;
+	objeto.appendChild(img);
+
+	audio=document.getElementById("controles");
+	audio.setAttribute("src","musica/"+obj_img.mp3);
+	audio.setAttribute("autoplay","true");
+}
+</script>
+</body>
+</html>
